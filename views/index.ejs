@@ -1,0 +1,17 @@
+
+    <%- include("partials/header") %>
+    <div class="container">
+        <div class="postsdiv">
+        <% posts.forEach((post, index) => { 
+            const previewContent = post.content.split(" ").slice(0, 30).join(" ") + "...";
+        %>
+            <div class="post">
+                <h2><%= post.title %></h2>
+                <p><%= previewContent %></p>
+                <a href="/post/<%= index %>">Read More</a>
+            </div>
+        <% }) %>
+        </div>
+    </div>
+    <%- include("partials/footer") %>
+    

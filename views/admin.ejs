@@ -1,0 +1,29 @@
+<%- include("partials/header") %>
+<div class="container">
+    <div class="createPost">
+        <h1>Create a new post</h1>
+        <form action="/admin" method="post">
+            <label for="postTitle">Title:</label>
+            <br>
+            <input type="text" name="postTitle" placeholder="Post Title" size="90" required>
+            <br>
+            <label for="postContent">Content:</label>
+            <br>
+            <textarea name="postContent" placeholder="Post Content" rows="7" cols="93" required></textarea>
+            <br>
+            <button type="submit">Publish</button>
+        </form>
+    </div>
+    <h2>All Posts</h2>
+    <% posts.forEach((post, index) => { %>
+        <h3><%= post.title %></h3>
+        <form action="/admin/edit/<%= post.title %>" method="get" style="display:inline;">
+            <button type="submit">Update</button>
+        </form>
+        <form action="/delete" method="post" style="display:inline;">
+            <input type="hidden" name="postTitle" value="<%= post.title %>">
+            <button type="submit">Delete</button>
+        </form>
+    <% }) %>
+</div>
+<%- include("partials/footer") %>

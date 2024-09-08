@@ -1,0 +1,20 @@
+<%- include("partials/header") %>
+<div class="container">
+    <h1>Edit Post</h1>
+    <form action="/admin/update" method="POST">
+        <input type="hidden" name="oldTitle" value="<%= post.title %>">
+        <div>
+            <label for="postTitle">Title:</label>
+            <br>
+            <input type="text" id="postTitle" name="postTitle" size="90" value="<%= post.title %>">
+            <br>
+        </div>
+        <div>
+            <label for="postContent">Content:</label>
+            <br>
+            <textarea id="postContent" name="postContent" rows="7" cols="93"><%= post.content %></textarea>
+        </div>
+        <button type="submit">Update Post</button>
+    </form>
+</div>
+<%- include("partials/footer") %>
